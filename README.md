@@ -1,4 +1,4 @@
-### User
+### Users
 
 | Column             | Type    | Options                   |
 |--------------------|---------|---------------------------|
@@ -15,7 +15,7 @@
 - has_many :items
 - has_many :orders
 
-### Item
+### Items
 
 | Column            | Type       | Options                        |
 |-------------------|------------|--------------------------------|
@@ -33,26 +33,25 @@
 - belongs_to :user
 - has_one :order
 
-### Order
+### Orders
 
 | Column            | Type       | Options                        |
 |-------------------|------------|--------------------------------|
 | user              | references | null: false,foreign_key: true  |
 | item              | references | null: false,foreign_key: true  |
-| token             | string     | null: false                    |
 
 ### Association
 - belongs_to :user
 - belongs_to :item
 - has_one :address
 
-### Address
+### Addresses
 
 | Column            | Type       | Options                       |
 |-------------------|------------|-------------------------------|
 | order             | references | null: false,foreign_key: true |
 | postal_code       | string     | null: false                   |
-| prefecture        | string     | null: false                   |
+| prefecture_id     | integer    | null: false                   |
 | city              | string     | null: false                   |
 | address           | string     | null: false                   |
 | building          | string     |                               |
