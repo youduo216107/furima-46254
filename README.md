@@ -33,7 +33,7 @@
 - belongs_to :user
 - has_one :order
 
-### Orders
+### Order
 
 | Column            | Type       | Options                        |
 |-------------------|------------|--------------------------------|
@@ -46,7 +46,7 @@
 - belongs_to :item
 - has_one :address
 
-### Addresses
+### Address
 
 | Column            | Type       | Options                       |
 |-------------------|------------|-------------------------------|
