@@ -76,3 +76,4 @@ end
 gem 'devise'
 gem 'active_hash'
 gem 'dotenv-rails'
+gem "importmap-rails"
