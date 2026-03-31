@@ -12,4 +12,6 @@ const price = () => {
   });
 };
 
-window.addEventListener("load", price);
+document.addEventListener("turbo:load", price);
+document.addEventListener("turbo:render", price);
+price();
