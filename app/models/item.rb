@@ -12,11 +12,12 @@ class Item < ApplicationRecord
   validates :image,                   
             :name,                    
             :description,             presence: { message: 'を入力してください' }
-  validates :price,                   numericality: {
+  validates :price,                   presence: { message: 'を入力してください' },
+                                       numericality: {
                                         only_integer: true,
                                         greater_than_or_equal_to: 300,
                                         less_than_or_equal_to: 9_999_999,
-                                        message: 'は300円以上、9,999,999円以下で入力してください'
+                                        message: 'は300円以上、9,999,999円以下の半角数字で入力してください'
                                       }
   validates :category_id,             
             :condition_id,            

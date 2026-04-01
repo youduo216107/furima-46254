@@ -67,25 +67,25 @@ RSpec.describe Item, type: :model do
       it 'priceが空では登録できない' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("価格 は300円以上、9,999,999円以下で入力してください")
+        expect(@item.errors.full_messages).to include("価格 を入力してください")
       end
 
       it 'priceが300円未満では登録できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("価格 は300円以上、9,999,999円以下で入力してください")
+        expect(@item.errors.full_messages).to include("価格 は300円以上、9,999,999円以下の半角数字で入力してください")
       end
 
       it 'priceが9,999,999円以上では登録できない' do
         @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("価格 は300円以上、9,999,999円以下で入力してください")
+        expect(@item.errors.full_messages).to include("価格 は300円以上、9,999,999円以下の半角数字で入力してください")
       end
 
       it 'priceに数字以外では登録できない' do
         @item.price = 'abc'
         @item.valid?
-        expect(@item.errors.full_messages).to include("価格 は300円以上、9,999,999円以下で入力してください")
+        expect(@item.errors.full_messages).to include("価格 は300円以上、9,999,999円以下の半角数字で入力してください")
       end
 
       it 'userが紐づいていなければ登録できない' do
