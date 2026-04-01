@@ -9,18 +9,19 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :shipping_day
 
-  validates :name,              presence: true
-  validates :description,       presence: true
-  validates :price,             presence: true,
-                                numericality: {
-                                  only_integer: true,
-                                  greater_than_or_equal_to: 300,
-                                  less_than_or_equal_to: 9_999_999
-                                }
-  validates :image,             presence: true
-  validates :category_id,       numericality: { other_than: 0 }
-  validates :condition_id,      numericality: { other_than: 0 }
-  validates :prefecture_id,     numericality: { other_than: 0 }
-  validates :shipping_fee_id,   numericality: { other_than: 0 }
-  validates :shipping_day_id,   numericality: { other_than: 0 }
+  validates :image,                   
+            :name,                    
+            :description,             presence: { message: 'を入力してください' }
+  validates :price,                   presence: { message: 'を入力してください' },
+                                       numericality: {
+                                        only_integer: true,
+                                        greater_than_or_equal_to: 300,
+                                        less_than_or_equal_to: 9_999_999,
+                                        message: 'は300円以上、9,999,999円以下の半角数字で入力してください'
+                                      }
+  validates :category_id,             
+            :condition_id,            
+            :prefecture_id,           
+            :shipping_fee_id,         
+            :shipping_day_id,         numericality: { other_than: 0, message: 'を選択してください' }
 end
