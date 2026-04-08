@@ -2,3 +2,4 @@
 
 pin "application"
 pin "item_price", to: "item_price.js"
+pin "@hotwired/turbo-rails", to: "turbo.min.js"
