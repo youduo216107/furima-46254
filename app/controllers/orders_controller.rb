@@ -5,10 +5,11 @@ class OrdersController < ApplicationController
   
   def index
     @order_shipping_address = OrderShippingAddress.new
+    gon.public_key = ENV['PAYJP_PUBLIC_KEY']
   end
 
   def create
-    @item = Item.find(params[:item_id])
+    gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @order_shipping_address = OrderShippingAddress.new(order_shipping_address_params)
     if @order_shipping_address.valid?
       pay_item
