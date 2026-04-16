@@ -71,6 +71,19 @@ RSpec.describe OrderShippingAddress, type: :model do
         @order_shipping_address.valid?
         expect(@order_shipping_address.errors.full_messages).to include('電話番号 は半角数字のみ11桁で入力してください')
       end
+
+      it 'phone_numberが9桁以下では購入できない' do
+        @order_shipping_address.phone_number = '090123456'
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include('電話番号 は半角数字のみ11桁で入力してください')
+      end
+
+      it 'phone_numberが半角数字以外が含まれる場合は購入できない' do
+        @order_shipping_address.phone_number = '090-1234-5678'
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include('電話番号 は半角数字のみ11桁で入力してください')
+      end
+      
     end
   end
 end
