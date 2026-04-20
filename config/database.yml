@@ -49,7 +49,4 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: furima_46254_production
-  username: furima_46254
-  password: <%= ENV["FURIMA_46254_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
