@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module Furima46254
   class Application < Rails::Application
     config.load_defaults 7.1
+    config.assets.initialize_on_precompile = false
     config.autoload_lib(ignore: %w(assets tasks))
     config.i18n.default_locale = :ja
     # config.time_zone = "Central Time (US & Canada)"
